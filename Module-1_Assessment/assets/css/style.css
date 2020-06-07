@@ -1,0 +1,268 @@
+
+ 
+ ul {
+  list-style-type: none;
+ background-color:  #cccccc;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+li {
+  float: left;
+  color:#4aaaa5;
+  background-color: #ffffff;
+}
+
+li a {
+  
+
+  color:#4aaaa5;
+  display: block;
+  color: #4aaaa5;
+  text-align: center;
+  padding: 14px 16px;
+  background-color: #ffffff;
+}
+
+
+li b {
+  color:#4aaaa5;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  margin-left: 200px;
+  background-color: #ffffff;
+  
+}
+
+
+li a:hover:not(.active) {
+  background-color: #ffffff;
+}
+
+.active {
+  background-color: #ffffff;
+}
+
+/**
+* Media Query Demo (note the commented rules)
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+head {
+  background-color: #79B9C6;
+  position: fixed;
+  top: 0;
+  float: right;
+  display: block;
+  color: #4aaaa5;
+
+}
+
+
+
+body {
+  background-color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  color: #4aaaa5;
+  
+
+}
+.container {
+  width: 500px;
+  background-color: white;
+  height: 200px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.item {
+  width: 10em;
+}
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+  The background color will be #ccc
+  at browser widths above 768px
+*/
+body {
+  /* Typography */
+  font-size: 18px;
+  line-height: 27px;
+   
+}
+
+
+/*
+  The width of the wrapper will be 1024px
+  at browser widths above 768px
+*/
+.wrapper {
+  
+  /* Box-model */
+  width: 100%;
+  
+
+  /* Positioning */
+  margin: 40px auto;
+  
+}
+
+#main-content,
+#sidebar {
+  /* Box-model */
+  color:#777777;
+  padding: 30px;
+  max-width: 850px;
+  margin: auto;
+background-color: #ffffff;
+border-color: #dddddd;
+}
+
+#main-content {
+  /* Positioning */
+  float: center;
+  color:#777777;
+  /* Visual */
+  background-color: #ffffff;
+  border-color: #dddddd;
+}
+
+#sidebar {
+  /* Positioning */
+  float: center;
+  color:#777777;
+  /* Visual */
+  background-color: #ffffff;
+  border-color: #dddddd;
+  
+}
+
+
+.footer {
+  background-color:#666666;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #4aaaa5;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+  /* Center website */
+  .main {
+    float:center;
+
+  width: 50%;    
+  background-color: white;
+  padding: 20px;
+  margin-top: 17%;
+
+  margin: auto;
+}
+
+h1 {
+  margin-top: 17%;
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.myrow {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.myrow,
+.myrow > .mycolumn {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.mycolumn {
+  float: center;
+  width: 25%;
+}
+.mycolumn2 {
+  float: left;
+  width: 25%;
+}
+
+.mycolumn3 {
+  margin-left: 400px;
+  width: 25%;
+}
+
+
+
+/* Clear floats after rows */ 
+.myrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.mycontent {
+  background-color: white;
+  padding: 10px;
+}
+/* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered2 {
+  position: absolute;
+  margin-left: 18%;
+  margin-top: 24%;
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+/* The body's bg color will be #333 */
+body {
+  background-color: #333;
+  
+}
+
+/* The wrapper's width will be 600px */
+.wrapper {
+    
+  width: 600px;
+}
+}
+
+

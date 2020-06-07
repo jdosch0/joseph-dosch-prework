@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+  background-color:white;
+}
+
+.navBar {
+    background-color:gray;  
+    text-align: center;
+    float: top;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.box1 {
+    background-color:blue;
+    color: black;
+    float: left;
+    width: 50%;
+    height: 500px;
+  }
+
+
+.box2 {
+    background: red;
+    color: black;
+    float: right;
+    width: 25%;
+    height: 500px;
+}
+
+footer {
+    padding: 20px;
+    clear: both;
+    width: 100%;
+  }
+
+  .box3 {
+    float: bottom;
+    width: 100%;
+    background: green;  
+}
+

@@ -1,0 +1,46 @@
+body {
+  background-color: #3bb3c7;
+  font-family: Arial, Helvetica, sans-serif;
+text-align: center
+  
+    left: 0;
+    line-height: 50px;
+
+    position: absolute;
+    text-align: center;
+    width: 100%;
+
+
+
+}
+p {
+  text-align: left;
+  color: white;
+}
+.rowOne {
+  
+
+  color: black;
+  font-size: 15px;
+}
+
+.rowTwo {
+
+  color: white;
+  font-size: 36px;
+}
+.rowThree {
+  align-items: center;
+  margin: 0 auto;
+  color: black;
+  font-size: 15px;
+  border: 5px solid white;
+  outline: 20px white;
+  width:160px;
+  word-wrap: break-word;
+  
+ 
+
+}
+
+
