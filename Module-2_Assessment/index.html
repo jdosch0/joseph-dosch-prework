@@ -7,106 +7,67 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Guess Game</title>
   
-    <!-- Link to your CSS below -->
+    <!-- Link to CSS and Javascript below -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/reset.css">
-
-      
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
 </head>
 
 <body>
-
-<div class="hero-image">
+<div class="hero-image" style="margin-top: 10%; background-image: url('assets/images/movieBackground.jpg');">
   <div class="hero-text">
-
-    <div id="chooseDifficulty" style="display: block">
-
-      <h1>Guess a Word</h1>
+    <div id="pressKey">
+      <p id="pressKey">Press A Key Inside The Text Field To Begin The Game</p>
+      <input type="text" id="demo">
       
-      <button title="very easy" onclick="start()">Start</button>
-      
-    
-    </div>
-    
-    
-    <div id="startButton" style="display: none">
-    
-      <h1>Guess a Word</h1>
-      <button onclick="start()">Start</button>
-      <p>Note: Some words may contain a hyphen(-) ex: X-ray</p>
-    
-    </div>
-    
-    <div id="mainGame" style="display: none">
-    
-    <p id="question"></p>
-    
-    <input type="text" id="guess" maxlength="1">
-    
-    <div>
-      <button onclick="enterGuess()">Enter Guess</button>
-    </div>
-    
-    </div>
-    
-    <div id="RRguess" style="display: block">
-    
-    <p id="rightGuess"></p>
-    <p id ="wrongGuess"></p>
-    <p id ="guessesLeft"></p>
-    
-    </div>
-    
-    <div id="youLose" style="display: none">
-    
-      <h1>You Lose</h1>
-    
-      <div>
-          <button onclick="restart()">Play again?</button>
-      </div>
-    
-      <p id="correctWordWas"></p>
-    
-    </div>
-    
-    <div id="youWin" style="display: none">
-    
-      <h2>You Win</h2>
-    
-      <div>
-          <button onclick="restart()">Play again?</button>
-      </div>
-    
-    </div>
-    <p>Category: Films / Movies</p>
-    <p>Note: Enter Your Guesses In All Caps</p>
+      <script>
+      document.getElementById("demo").addEventListener("keypress", myFunction);
+      function myFunction() {
+        secondScreen()
+      }
+      </script>
 
+    </div>
 
+<div id="gameInstructions" style="display: none">
+
+  <h1>Word Guess Game!</h1>
+  <h2>The Category Is Movies / Film</h2>
+  <h3>Enter Your Guesses As Capital Letters</h3>
+  <h3>Some Movie Titles Contain Spaces</h3>
+  <button onclick="gameStart()">Start Game</button>
+</div>
+
+<div id="wordGame" style="display: none">
+<p id="question"></p>
+<input type="text" id="guess" maxlength="1">
+<div>
+  <button onclick="enterGuess()">Enter Guess</button>
+</div>
+</div>
+
+<div id="gameStats" style="display: block">
+<p id="rightGuess"></p>
+<p id ="wrongGuess"></p>
+<p id ="guessesLeft"></p>
+<p>Category: Movie Titles from the 2010s</p>
+<p>Note: Enter Your Guesses As Capital Letters. Some Movie Titles Contain Spaces</p>
+</div>
+
+<div id="lost" style="display: none">
+  <h1>You Lose</h1>
+  <div>
+      <button onclick="restart()">Play again?</button>
   </div>
+  <p id="correctfas"></p>
+</div>
+
+<div id="winner" style="display: none">
+  <h2>You Win! The Game Has Restarted With Another Movie For You To Guess!</h2>
 </div>
 
 
-<!--EVERYTHING BELOW IS A TEST-->
 
-
-
-
- 
- 
- 
- 
-
-    
-
-
-  <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-  <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-  <script src="assets/javascript/game.js" type="text/javascript"></script>
-
-
+</div>
 </body>
 </html>

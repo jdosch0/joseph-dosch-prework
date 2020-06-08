@@ -2,6 +2,20 @@
 <html lang="en">
   
 <head>
+
+  <style>
+
+    @media screen and (max-width: 960px) {
+    /* The body's bg color will be #333 */
+        body {
+          background-color: #333; 
+        }
+        /* The wrapper's width will be 600px */
+        .wrapper {
+          width: 600px; }
+    }
+      </style>
+
     <meta charset="UTF-8">
 
 
@@ -29,10 +43,10 @@
    
 
     
-    <div class="wrapper">
+    <div class="wrapper" style="width: 960px;"  >
 
-      <section id="main-content">
-        <p style="line-height: 2">Contact</p>
+      <section id="main-content" style="width: 960px;" >
+        <h2 >Contact</h2>
   
      <hr>
       </section>
@@ -48,7 +62,8 @@
         <input type="email" id="email" name="email"><br>
         
         <label for="formMessage">Message</label><br>
-        <textarea name="message" rows="10" cols="110"></textarea>
+        <textarea name="message" rows="10" cols="110"></textarea><br>
+        <input type="submit" value="Submit" style="width:150px; background-color:#4aaaa5 ;">
         
       </form>
             </div>   

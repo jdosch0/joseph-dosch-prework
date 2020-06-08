@@ -1,95 +1,70 @@
-
-var word = "";
-var wordGuess = [];
+var selectedMovie = "";
+var movieGuess = [];
 var wrongGuess = [];
-var guessBomb = 0;
+var remainingGuesses = 0;
 var winCount = 1;
 var guess = "";
 
-var dif = 1;
-
-function chooseDif1() {
-    dif = 1;
-    document.getElementById('startButton').style.display='block';
-    document.getElementById('chooseDifficulty').style.display='none';
-}
-/* 
-function chooseDif2() {
-    dif = 2;
-    document.getElementById('startButton').style.display='block';
-    document.getElementById('chooseDifficulty').style.display='none';
+function secondScreen() { 
+    document.getElementById('gameInstructions').style.display='block';
+    document.getElementById('pressKey').style.display='none';
+    document.getElementById('demo').style.display='none';
 }
 
-function chooseDif3() {
-    dif = 3;
-    document.getElementById('startButton').style.display='block';
-    document.getElementById('chooseDifficulty').style.display='none';
-}
-*/
-
-function wordw() {
-    var randomWords = ["AVATAR", "BLACK PANTHER"]
-    var raNum = Math.floor(Math.random() * 2);
-    return randomWords[raNum]
+function selectMovie() {
+    var selectMovie = ["AVATAR", "BLACK PANTHER", "AVENGERS: ENDGAME", "THE LION KING", "FROZEN", "ALADDIN", "JOKER", "TOY STORY"]
+    var myRandom = Math.floor(Math.random() * 8);
+    return selectMovie[myRandom]
     }
 
 
-function wordStart() {
-    var wordLength = word.length;
+function insertAnsweres() {
+    var movieLength = selectedMovie.length;
     var wordL_ = "";
-    var count = wordLength;
+    var count = movieLength;
 
     while(count > 0) {
-        wordGuess.push(" _ ");
+        movieGuess.push(" _ ");
         count -= 1;
     }
 }
 
-function winCountFunc() {
+function countLetters() {
+    document.getElementById('pressKey').style.display='none';
+    document.getElementById('demo').style.display='none';
     var num = 0;
     var lettUsed = "";
-    var count = word.length;
+    var count = selectedMovie.length;
 
     while(count > 0) {
-        if(lettUsed.includes(word[count - 1])) {
-
+        if(lettUsed.includes(selectedMovie[count - 1])) {
         }
-
         else{
             num += 1;
-            lettUsed += word[count - 1];
+            lettUsed += selectedMovie[count - 1];
         }
-
         count -= 1;
     }
-
     return num;
 }
 
-function start() {
-    word = wordw();
-    winCount = winCountFunc();
-
-    if(dif == 1) {
-        guessBomb = word.length + 5;
-    }
-
-
-    console.log(word);
-    document.getElementById('mainGame').style.display='block';
-    document.getElementById('startButton').style.display='none';
-
-    document.getElementById("question").innerHTML = "Enter your first guess";
-
-    wordStart();
-
-    document.getElementById('RRguess').style.display='block';
-    document.getElementById("rightGuess").innerHTML = "word progress: " + wordGuess;
-    document.getElementById("wrongGuess").innerHTML = "Wrong guesses: " + wrongGuess;
-    document.getElementById("guessesLeft").innerHTML = "Guesses remaining: " + guessBomb;
-
+function gameStart() {
+    selectedMovie = selectMovie();
+    winCount = countLetters();
+    remainingGuesses = selectedMovie.length + 5;
+    
+    console.log(selectedMovie);
+    document.getElementById('wordGame').style.display='block';
+    document.getElementById('gameInstructions').style.display='none';
+    document.getElementById("question").innerHTML = "Enter Your Guess Below: ";
+    insertAnsweres();
+    document.getElementById('gameStats').style.display='block';
+    document.getElementById("rightGuess").innerHTML = "Letters Remaining: " + movieGuess;
+    document.getElementById("wrongGuess").innerHTML = "Wrong Guesses: " + wrongGuess;
+    document.getElementById("guessesLeft").innerHTML = "Remaining Guesses: " + remainingGuesses;
+    
     var x = document.getElementById("guess").maxLength;
-    //document.getElementById("demo").innerHTML = x;
+    
 }
 
 function enterGuess() {
@@ -97,43 +72,37 @@ function enterGuess() {
     document.getElementById("guess").value = "";
 
     if (lett.length === 1){
-        var rightOnot = isRightOnot(lett);
+        var rightOnot = movieIncludes(lett);
         if (rightOnot == true) {
-
             NewCW(lett);
         }
-
         else {
             if(!wrongGuess.includes(lett)) {
                 console.log("hi");
                 wrongGuess.push(lett);
             }
-            guessBomb -= 1;
+            remainingGuesses -= 1;
         }
     }
-
     else if (lett.length < 1) {
-
     }
-
     else {
-        guessBomb -= 1;
+        remainingGuesses -= 1;
     }
-
-    if (guessBomb <= 0) {
-        gameLose()
+    if (remainingGuesses <= 0) {
+        lostGame()
     }
-
     if (winCount <= 0) {
-        gameWin()
+        wonGame()
     }
-    document.getElementById("rightGuess").innerHTML = "word progress: " + wordGuess;
-    document.getElementById("wrongGuess").innerHTML = "Wrong guesses: " + wrongGuess;
-    document.getElementById("guessesLeft").innerHTML = "Guesses remaining: " + guessBomb;
+
+    document.getElementById("rightGuess").innerHTML = "Letters Remaining: " + movieGuess;
+    document.getElementById("wrongGuess").innerHTML = "Guessed Letters: " + wrongGuess;
+    document.getElementById("guessesLeft").innerHTML = "Remaining Guesses: " + remainingGuesses;
 }
 
-function isRightOnot(a) {
-    var n = word.includes(a);
+function movieIncludes(a) {
+    var n = selectedMovie.includes(a);
     return n;
 }
 
@@ -141,50 +110,64 @@ function NewCW(letter) {
     var count = 0;
     winCount -= 1
 
-    while (count <= word.length - 1) {
-        if (letter === word[count]) {
-            if(wordGuess[count] === letter) {
+    while (count <= selectedMovie.length - 1) {
+        if (letter === selectedMovie[count]) {
+            if(movieGuess[count] === letter) {
             }
             else {
             }
-
-            wordGuess[count] = letter;
+            movieGuess[count] = letter;
             count += 1;
         }
-
         else {
             count += 1;
         }
-
     }
-
 }
 
-function gameLose() {
-    document.getElementById('mainGame').style.display='none';
-    document.getElementById('RRguess').style.display='none';
-    document.getElementById('youLose').style.display='block';
-    document.getElementById("correctWordWas").innerHTML = "The correct word was " + word;
+function lostGame() {
+    document.getElementById('wordGame').style.display='block';
+    document.getElementById('gameStats').style.display='block';
+    document.getElementById('lost').style.display='block';
+    document.getElementById("correctWordWas").innerHTML = "The Correct Movie Was: " + selectedMovie;
+
+    selectedMovie = "";
+    movieGuess = [];
+    wrongGuess = [];
+    remainingGuesses = 0;
+    winCount = 1;
+    guess = "";
+    
+    gameStart();
 }
 
-function gameWin() {
-    document.getElementById('mainGame').style.display='none';
-    document.getElementById('RRguess').style.display='none';
-    document.getElementById('youWin').style.display='block';
+function wonGame() {
+    document.getElementById('wordGame').style.display='block';
+    document.getElementById('gameStats').style.display='block';
+    document.getElementById('winner').style.display='block';
+
+    selectedMovie = "";
+    movieGuess = [];
+    wrongGuess = [];
+    remainingGuesses = 0;
+    winCount = 1;
+    guess = "";
+    
+    gameStart();
 }
 
 function restart() {
-    document.getElementById('mainGame').style.display='none';
-    document.getElementById('RRguess').style.display='none';
-    document.getElementById('youLose').style.display='none';
-    document.getElementById('youWin').style.display='none';
-    document.getElementById('chooseDifficulty').style.display='block';
+    document.getElementById('wordGame').style.display='block';
+    document.getElementById('gameStats').style.display='block';
+    document.getElementById('lost').style.display='none';
+    document.getElementById('winner').style.display='none';
 
-    word = "";
-    wordGuess = [];
+    selectedMovie = "";
+    movieGuess = [];
     wrongGuess = [];
-    guessBomb = 0;
+    remainingGuesses = 0;
     winCount = 1;
     guess = "";
-    dif = 0;
+    
+    start();
 }
